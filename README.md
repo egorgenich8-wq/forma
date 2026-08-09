@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Закупка снаряжения • Гуманитарная помощь СВО</title>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         * {
@@ -34,7 +33,6 @@
             padding: 2.5rem 2rem;
             box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 215, 150, 0.2);
             border: 1px solid #6f6a5f;
-            transition: 0.25s;
         }
 
         .header {
@@ -96,14 +94,8 @@
             white-space: nowrap;
         }
 
-        .tag i {
-            color: #e6d5b8;
-            font-size: 1.1rem;
-        }
-
-        .tag .heart {
-            color: #e67e7e;
-        }
+        .tag i { color: #e6d5b8; font-size: 1.1rem; }
+        .tag .heart { color: #e67e7e; }
 
         .mission-statement {
             background: #2d2922;
@@ -121,15 +113,8 @@
             gap: 0.8rem 1.8rem;
         }
 
-        .mission-statement i {
-            color: #d4c5ad;
-            font-size: 1.6rem;
-        }
-
-        .mission-statement strong {
-            color: #f0eadc;
-        }
-
+        .mission-statement i { color: #d4c5ad; font-size: 1.6rem; }
+        .mission-statement strong { color: #f0eadc; }
         .mission-statement .badge-svo {
             background: #4d4133;
             padding: 0.2rem 1.2rem;
@@ -163,23 +148,9 @@
             transform: translateY(-4px);
         }
 
-        .sample-card .icon {
-            font-size: 3rem;
-            color: #d3c5ae;
-            margin-bottom: 0.3rem;
-        }
-
-        .sample-card h3 {
-            color: #f0eadc;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .sample-card p {
-            color: #b7aa93;
-            font-size: 0.85rem;
-            margin-top: 0.3rem;
-        }
+        .sample-card .icon { font-size: 3rem; color: #d3c5ae; margin-bottom: 0.3rem; }
+        .sample-card h3 { color: #f0eadc; font-size: 1.1rem; font-weight: 500; }
+        .sample-card p { color: #b7aa93; font-size: 0.85rem; margin-top: 0.3rem; }
 
         .form-section {
             background: #2b2821;
@@ -200,10 +171,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .form-section h2 i {
-            color: #b8a78b;
-            font-size: 1.8rem;
-        }
+        .form-section h2 i { color: #b8a78b; font-size: 1.8rem; }
 
         .form-row {
             display: grid;
@@ -217,9 +185,7 @@
             gap: 0.3rem;
         }
 
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
+        .form-group.full-width { grid-column: 1 / -1; }
 
         .form-group label {
             color: #d3c9b6;
@@ -231,10 +197,7 @@
             gap: 8px;
         }
 
-        .form-group label i {
-            color: #b3a181;
-            width: 1.2rem;
-        }
+        .form-group label i { color: #b3a181; width: 1.2rem; }
 
         .form-group input,
         .form-group select,
@@ -264,11 +227,7 @@
             min-height: 110px;
         }
 
-        .form-group select option {
-            background: #2b2821;
-            color: #f0eadc;
-        }
-
+        .form-group select option { background: #2b2821; color: #f0eadc; }
         .form-group .hint {
             font-size: 0.8rem;
             color: #9e937e;
@@ -299,18 +258,13 @@
             margin-top: 1.2rem;
         }
 
-        .submit-btn i {
-            font-size: 1.5rem;
-            color: #f7f0e0;
-        }
-
+        .submit-btn i { font-size: 1.5rem; color: #f7f0e0; }
         .submit-btn:hover {
             background: #9d8d73;
             transform: translateY(1px);
             border-bottom-width: 3px;
             box-shadow: 0 3px 0 #3f382d, 0 10px 18px #0a0906;
         }
-
         .submit-btn:active {
             transform: translateY(5px);
             border-bottom-width: 1px;
@@ -330,11 +284,7 @@
             font-size: 0.95rem;
         }
 
-        .footer-note i {
-            color: #b3a080;
-            margin-right: 6px;
-        }
-
+        .footer-note i { color: #b3a080; margin-right: 6px; }
         .footer-note .badge {
             background: #2b2821;
             padding: 0.4rem 1.5rem;
@@ -342,60 +292,37 @@
             border: 1px solid #6e6657;
         }
 
-        /* Адаптив */
         @media (max-width: 750px) {
-            .site-card {
-                padding: 1.5rem 1rem;
-                border-radius: 2.5rem;
-            }
-            .header h1 {
-                font-size: 1.6rem;
-            }
-            .header .tag {
-                font-size: 0.8rem;
-                padding: 0.4rem 1rem;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .form-group.full-width {
-                grid-column: 1;
-            }
-            .mission-statement {
-                font-size: 0.95rem;
-                padding: 1rem 1.2rem;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .mission-statement .badge-svo {
-                margin-left: 0;
-            }
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
+            .site-card { padding: 1.5rem 1rem; border-radius: 2.5rem; }
+            .header h1 { font-size: 1.6rem; }
+            .header .tag { font-size: 0.8rem; padding: 0.4rem 1rem; }
+            .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            .form-group.full-width { grid-column: 1; }
+            .mission-statement { font-size: 0.95rem; padding: 1rem 1.2rem; flex-direction: column; align-items: flex-start; }
+            .mission-statement .badge-svo { margin-left: 0; }
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
         }
 
         @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.8rem;
-            }
-            .sample-card .icon {
-                font-size: 2.4rem;
-            }
-            .sample-card h3 {
-                font-size: 0.95rem;
-            }
-            .form-section {
-                padding: 1.5rem 1.2rem;
-            }
-            .header-left .icon-big {
-                font-size: 2rem;
-                padding: 0.2rem 0.6rem;
-            }
+            .grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+            .sample-card .icon { font-size: 2.4rem; }
+            .sample-card h3 { font-size: 0.95rem; }
+            .form-section { padding: 1.5rem 1.2rem; }
+            .header-left .icon-big { font-size: 2rem; padding: 0.2rem 0.6rem; }
         }
+
+        /* стили для сообщений */
+        .feedback {
+            margin-top: 1.5rem;
+            display: none;
+            background: #353027;
+            border-radius: 2rem;
+            padding: 1rem 1.8rem;
+            border-left: 6px solid #b8a78b;
+            color: #e6ddcc;
+        }
+        .feedback.error { border-left-color: #c97a5a; }
+        .feedback i { margin-right: 12px; }
     </style>
 </head>
 <body>
@@ -405,15 +332,10 @@
     <div class="header">
         <div class="header-left">
             <span class="icon-big"><i class="fas fa-hand-holding-heart"></i></span>
-            <h1>
-                <span class="highlight">Снаряжение</span> <br style="display: none;" />
-                <span style="font-size: 0.9em; display: inline-block;">для СВО</span>
-            </h1>
+            <h1><span class="highlight">Снаряжение</span> <span style="font-size: 0.9em;">для СВО</span></h1>
         </div>
         <div class="tag">
-            <i class="fas fa-truck"></i> 
-            <span>Покупаем</span> 
-            <i class="fas fa-arrow-right" style="margin: 0 4px;"></i>
+            <i class="fas fa-truck"></i> Покупаем <i class="fas fa-arrow-right" style="margin: 0 4px;"></i>
             <span><i class="fas fa-heart heart"></i> гуманитарная помощь</span>
         </div>
     </div>
@@ -421,62 +343,36 @@
     <!-- МИССИЯ -->
     <div class="mission-statement">
         <i class="fas fa-bullseye"></i>
-        <span>
-            <strong>Мы закупаем военное снаряжение</strong> 
-            по <strong>высоким ценам</strong> для передачи 
-            <strong>гуманитарной помощи</strong> в район СВО.
-        </span>
-        <span class="badge-svo">
-            <i class="fas fa-flag"></i> #СВО #помощь
-        </span>
+        <span><strong>Мы закупаем военное снаряжение</strong> по <strong>высоким ценам</strong> для передачи <strong>гуманитарной помощи</strong> в район СВО.</span>
+        <span class="badge-svo"><i class="fas fa-flag"></i> #СВО #помощь</span>
     </div>
 
     <!-- Примеры закупаемого -->
     <div style="margin-bottom: 0.2rem;">
         <span style="color: #b9af9b; font-size: 0.95rem; letter-spacing: 1px;">
-            <i class="fas fa-cubes"></i>  что закупаем:
+            <i class="fas fa-cubes"></i> что закупаем:
         </span>
     </div>
     <div class="grid">
-        <div class="sample-card">
-            <div class="icon"><i class="fas fa-tshirt"></i></div>
-            <h3>Камуфляж «Мох»</h3>
-            <p>костюмы, куртки, штаны</p>
-        </div>
-        <div class="sample-card">
-            <div class="icon"><i class="fas fa-shoe-prints"></i></div>
-            <h3>Берцы</h3>
-            <p>высокие, усиленные</p>
-        </div>
-        <div class="sample-card">
-            <div class="icon"><i class="fas fa-vest"></i></div>
-            <h3>Зимние куртки</h3>
-            <p>утеплённые, мох</p>
-        </div>
-        <div class="sample-card">
-            <div class="icon"><i class="fas fa-backpack"></i></div>
-            <h3>Вещевые мешки</h3>
-            <p>60–120 л, камуфляж</p>
-        </div>
+        <div class="sample-card"><div class="icon"><i class="fas fa-tshirt"></i></div><h3>Камуфляж «Мох»</h3><p>костюмы, куртки, штаны</p></div>
+        <div class="sample-card"><div class="icon"><i class="fas fa-shoe-prints"></i></div><h3>Берцы</h3><p>высокие, усиленные</p></div>
+        <div class="sample-card"><div class="icon"><i class="fas fa-vest"></i></div><h3>Зимние куртки</h3><p>утеплённые, мох</p></div>
+        <div class="sample-card"><div class="icon"><i class="fas fa-backpack"></i></div><h3>Вещевые мешки</h3><p>60–120 л, камуфляж</p></div>
     </div>
 
-    <!-- ФОРМА ПРИЁМА ЗАЯВОК -->
+    <!-- ФОРМА -->
     <div class="form-section" id="orderForm">
-        <h2>
-            <i class="fas fa-pen-to-square"></i> 
-            Отправить заявку на продажу
-        </h2>
+        <h2><i class="fas fa-pen-to-square"></i> Отправить заявку на продажу</h2>
 
-        <!-- action указывает на обработчик, который отправит письмо -->
+        <!-- Formspree: скрытый email -->
         <form id="sellForm" action="https://formspree.io/f/xpznkkrg" method="POST">
-            <!-- скрытое поле для темы письма -->
             <input type="hidden" name="_subject" value="Новая заявка на продажу снаряжения для СВО" />
-            
+            <!-- доп. скрытое поле для обратного адреса (не показывается пользователю) -->
+            <input type="hidden" name="_replyto" value="agent0490@mail.ru" />
+
             <div class="form-row">
-                <div class="form-group">
-                    <label for="name"><i class="fas fa-user"></i> Ваше имя *</label>
-                    <input type="text" id="name" name="name" placeholder="Иван Петров" required />
-                </div>
+                <!-- Поле "Ваше имя" УДАЛЕНО -->
+
                 <div class="form-group">
                     <label for="phone"><i class="fas fa-phone"></i> Телефон *</label>
                     <input type="tel" id="phone" name="phone" placeholder="+7 912 345-67-89" required />
@@ -521,8 +417,9 @@
             </button>
         </form>
 
-        <div id="formFeedback" style="margin-top: 1.5rem; display: none; background: #353027; border-radius: 2rem; padding: 1rem 1.8rem; border-left: 6px solid #b8a78b; color: #e6ddcc;">
-            <i class="fas fa-check-circle" style="color: #b8a78b; margin-right: 12px;"></i>
+        <!-- Блок обратной связи -->
+        <div id="formFeedback" class="feedback">
+            <i class="fas fa-check-circle"></i>
             <span id="feedbackMessage">Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.</span>
         </div>
     </div>
@@ -535,52 +432,60 @@
     </div>
 </div>
 
-<!-- Скрипт: отправка через Formspree с визуальным откликом -->
 <script>
     (function() {
         const form = document.getElementById('sellForm');
         const feedbackDiv = document.getElementById('formFeedback');
         const feedbackMessage = document.getElementById('feedbackMessage');
+        const submitBtn = document.getElementById('submitBtn');
 
         function showFeedback(text, isSuccess = true) {
             feedbackMessage.textContent = text;
             feedbackDiv.style.display = 'block';
-            feedbackDiv.style.borderLeftColor = isSuccess ? '#b8a78b' : '#c97a5a';
+            feedbackDiv.className = 'feedback' + (isSuccess ? '' : ' error');
             feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         form.addEventListener('submit', function(e) {
-            // Не отменяем отправку, даём форме отправиться на Formspree
-            // Но перед отправкой показываем индикатор загрузки
-            const btn = document.getElementById('submitBtn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
-            btn.disabled = true;
-
-            // Показываем сообщение, что заявка отправляется
-            showFeedback('⏳ Отправляем вашу заявку...', true);
-
-            // Даём форме отправиться естественным путём
-            // Formspree перенаправит на страницу благодарности, но мы можем перехватить ответ через fetch
-            // Используем fetch для отправки без перезагрузки
             e.preventDefault();
+
+            // Проверка: телефон
+            const phone = document.getElementById('phone').value.trim();
+            if (!phone) {
+                showFeedback('❌ Пожалуйста, укажите номер телефона.', false);
+                return;
+            }
+            const phoneClean = phone.replace(/[^+\d]/g, '');
+            if (phoneClean.length < 6) {
+                showFeedback('❌ Введите корректный номер телефона (например, +7 912 345-67-89).', false);
+                return;
+            }
+
+            // Проверка: выбран товар
+            const product = document.getElementById('productType').value;
+            if (!product) {
+                showFeedback('❌ Пожалуйста, выберите, что вы продаёте.', false);
+                return;
+            }
+
+            // Отключаем кнопку, показываем спиннер
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
+            submitBtn.disabled = true;
 
             const formData = new FormData(form);
 
-            // Отправляем через fetch
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             })
             .then(response => {
                 if (response.ok) {
                     showFeedback('✅ Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.', true);
                     form.reset();
                 } else {
-                    showFeedback('❌ Произошла ошибка при отправке. Попробуйте позже или позвоните по телефону.', false);
+                    showFeedback('❌ Ошибка при отправке. Попробуйте позже или позвоните по телефону.', false);
                 }
             })
             .catch(error => {
@@ -588,8 +493,8 @@
                 console.error('Ошибка:', error);
             })
             .finally(() => {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
             });
         });
     })();
