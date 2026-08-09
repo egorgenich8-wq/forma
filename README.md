@@ -19,28 +19,30 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       padding: 0.8rem;
     }
 
     .site-card {
       max-width: 100%;
       width: 100%;
+      max-width: 500px;
       background: rgba(30, 28, 24, 0.92);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       border-radius: 2rem;
-      padding: 1.2rem 1rem;
+      padding: 1.5rem 1.2rem;
       box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 215, 150, 0.2);
       border: 1px solid #6f6a5f;
       margin: 0 auto;
       overflow-x: hidden;
+      text-align: center;
     }
 
     .header {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       margin-bottom: 1.5rem;
       border-bottom: 2px solid #7f7a6b;
@@ -52,15 +54,13 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      flex: 1 1 auto;
-      min-width: 0;
     }
 
     .header-left .icon-big {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #d4c5ad;
       background: #3d3830;
-      padding: 0.3rem 0.6rem;
+      padding: 0.3rem 0.7rem;
       border-radius: 60px;
       border: 1px solid #8a7d66;
       flex-shrink: 0;
@@ -73,7 +73,6 @@
       color: #ede7d9;
       text-shadow: 0 4px 10px #1f1b14;
       line-height: 1.2;
-      word-break: break-word;
     }
 
     .header h1 .highlight {
@@ -97,7 +96,6 @@
       align-items: center;
       gap: 4px;
       white-space: nowrap;
-      flex-shrink: 0;
     }
 
     .tag i { color: #e6d5b8; font-size: 0.8rem; }
@@ -112,6 +110,7 @@
       font-size: 0.9rem;
       line-height: 1.5;
       box-shadow: inset 0 2px 6px #1a1814;
+      text-align: left;
     }
 
     .mission-statement i { color: #d4c5ad; font-size: 1.2rem; margin-right: 6px; }
@@ -121,7 +120,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.8rem;
-      margin: 1.2rem 0 1.5rem;
+      margin: 1.2rem 0 1.8rem;
     }
 
     .sample-card {
@@ -143,120 +142,64 @@
     .sample-card h3 { color: #f0eadc; font-size: 0.85rem; font-weight: 500; }
     .sample-card p { color: #b7aa93; font-size: 0.7rem; margin-top: 0.1rem; }
 
-    .form-section {
+    /* КНОПКА ЗВОНКА */
+    .call-block {
       background: #2b2821;
       border-radius: 2rem;
-      padding: 1.2rem 1rem 1.5rem;
+      padding: 1.5rem 1.2rem;
       border: 1px solid #6a6355;
       box-shadow: inset 0 2px 8px #1d1b16;
+      margin-bottom: 0.5rem;
     }
 
-    .form-section h2 {
-      color: #efe8d9;
-      font-size: 1.3rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .form-section h2 i { color: #b8a78b; font-size: 1.3rem; }
-
-    .form-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .form-group label {
-      color: #d3c9b6;
-      font-weight: 500;
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .form-group label i { color: #b3a181; width: 1rem; }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: #1f1c17;
-      border: 1px solid #5a5346;
-      border-radius: 60px;
-      padding: 0.7rem 1rem;
-      font-size: 0.9rem;
+    .call-block .phone-number {
+      font-size: 1.8rem;
+      font-weight: 700;
       color: #f0eadc;
-      outline: none;
-      transition: 0.2s;
-      box-shadow: inset 0 2px 5px #0e0d0a;
-      width: 100%;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
     }
 
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: #b8a78b;
-      background: #26221c;
-      box-shadow: 0 0 0 2px rgba(184, 167, 139, 0.2);
+    .call-block .phone-number i {
+      color: #b8a78b;
+      margin-right: 10px;
     }
 
-    .form-group textarea {
-      border-radius: 1.2rem;
-      resize: vertical;
-      min-height: 80px;
+    .call-block .sub-text {
+      color: #b9af9b;
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
     }
 
-    .form-group select option { background: #2b2821; color: #f0eadc; }
-    .form-group .hint {
-      font-size: 0.7rem;
-      color: #9e937e;
-      margin-left: 4px;
-      margin-top: 2px;
-    }
-
-    .submit-btn {
+    .call-btn {
       background: #7e6f58;
       border: none;
       border-bottom: 3px solid #4d4133;
-      padding: 0.8rem 1rem;
+      padding: 1rem 1.5rem;
       border-radius: 60px;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: #fefcf5;
       text-shadow: 0 2px 3px #1e1913;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       cursor: pointer;
       transition: 0.15s;
       background: linear-gradient(145deg, #897b64, #6d5f4b);
       box-shadow: 0 4px 0 #3f382d, 0 6px 12px #0b0a07;
       letter-spacing: 0.5px;
       width: 100%;
-      margin-top: 0.8rem;
+      text-decoration: none;
+      color: #fefcf5;
     }
 
-    .submit-btn i { font-size: 1.2rem; color: #f7f0e0; }
-    .submit-btn:active {
+    .call-btn i { font-size: 1.4rem; color: #f7f0e0; }
+    .call-btn:active {
       transform: translateY(3px);
       border-bottom-width: 1px;
       box-shadow: 0 1px 0 #3f382d;
-    }
-    .submit-btn:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: translateY(2px);
-      border-bottom-width: 2px;
     }
 
     .footer-note {
@@ -281,21 +224,8 @@
       border: 1px solid #6e6657;
     }
 
-    .feedback {
-      margin-top: 1rem;
-      display: none;
-      background: #353027;
-      border-radius: 1.5rem;
-      padding: 0.8rem 1.2rem;
-      border-left: 4px solid #b8a78b;
-      color: #e6ddcc;
-      font-size: 0.9rem;
-    }
-    .feedback.error { border-left-color: #c97a5a; }
-    .feedback i { margin-right: 8px; }
-
     @media (max-width: 400px) {
-      .site-card { padding: 0.8rem 0.6rem; }
+      .site-card { padding: 1rem 0.8rem; }
       .header h1 { font-size: 1.2rem; }
       .header-left .icon-big { font-size: 1.4rem; padding: 0.2rem 0.4rem; }
       .header .tag { font-size: 0.6rem; padding: 0.2rem 0.6rem; }
@@ -304,9 +234,8 @@
       .sample-card .icon { font-size: 1.6rem; }
       .sample-card h3 { font-size: 0.75rem; }
       .sample-card p { font-size: 0.6rem; }
-      .form-section h2 { font-size: 1.1rem; }
-      .form-group input, .form-group select, .form-group textarea { font-size: 0.8rem; padding: 0.5rem 0.8rem; }
-      .submit-btn { font-size: 0.95rem; padding: 0.6rem 0.8rem; }
+      .call-block .phone-number { font-size: 1.4rem; }
+      .call-btn { font-size: 1.1rem; padding: 0.8rem 1rem; }
     }
 
     @media (max-width: 360px) {
@@ -336,7 +265,7 @@
   </div>
 
   <!-- ЧТО ЗАКУПАЕМ -->
-  <div style="margin-bottom: 0.3rem;">
+  <div style="margin-bottom: 0.3rem; text-align: left;">
     <span style="color: #b9af9b; font-size: 0.8rem;">
       <i class="fas fa-cubes"></i> что закупаем:
     </span>
@@ -348,100 +277,24 @@
     <div class="sample-card"><div class="icon"><i class="fas fa-backpack"></i></div><h3>Вещевые мешки</h3><p>60–120 л</p></div>
   </div>
 
-  <!-- ФОРМА -->
-  <div class="form-section">
-    <h2><i class="fas fa-pen-to-square"></i> Оставить заявку</h2>
-
-    <!-- FormSubmit — почта скрыта -->
-    <form id="sellForm" action="https://formsubmit.co/egorgenich8@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Новая заявка на продажу снаряжения" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="phone"><i class="fas fa-phone"></i> Телефон *</label>
-          <input type="tel" id="phone" name="Телефон" placeholder="+7 912 345-67-89" required />
-        </div>
-
-        <div class="form-group">
-          <label for="productType"><i class="fas fa-camouflage"></i> Что продаёте? *</label>
-          <select id="productType" name="Товар" required>
-            <option value="">-- выберите --</option>
-            <option value="Камуфляж Мох">Камуфляж «Мох»</option>
-            <option value="Берцы Мох">Берцы «Мох»</option>
-            <option value="Зимняя куртка Мох">Зимняя куртка «Мох»</option>
-            <option value="Вещевой мешок">Вещевой мешок</option>
-            <option value="Другое">Другое снаряжение</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="quantity"><i class="fas fa-hashtag"></i> Количество</label>
-          <input type="text" id="quantity" name="Количество" placeholder="10 комплектов" />
-        </div>
-
-        <div class="form-group">
-          <label for="price"><i class="fas fa-tag"></i> Ваша цена</label>
-          <input type="text" id="price" name="Цена" placeholder="4500 ₽" />
-        </div>
-
-        <div class="form-group">
-          <label for="city"><i class="fas fa-location-dot"></i> Город</label>
-          <input type="text" id="city" name="Город" placeholder="Москва" />
-        </div>
-
-        <div class="form-group">
-          <label for="message"><i class="fas fa-comment"></i> Подробности</label>
-          <textarea id="message" name="Детали" placeholder="Состояние, размеры, фото..." rows="3"></textarea>
-          <span class="hint"><i class="fas fa-info-circle"></i> Чем подробнее — тем быстрее ответим</span>
-        </div>
-      </div>
-
-      <button type="submit" class="submit-btn" id="submitBtn">
-        <i class="fas fa-paper-plane"></i> Отправить заявку
-      </button>
-    </form>
-
-    <div id="formFeedback" class="feedback">
-      <i class="fas fa-check-circle"></i>
-      <span id="feedbackMessage">Спасибо! Заявка отправлена.</span>
+  <!-- КНОПКА ДЛЯ ЗВОНКА -->
+  <div class="call-block">
+    <div class="phone-number">
+      <i class="fas fa-phone"></i> +7 996 917-00-84
     </div>
+    <div class="sub-text">
+      <i class="fas fa-clock"></i> Звоните с 9:00 до 21:00
+    </div>
+    <a href="tel:+79969170084" class="call-btn">
+      <i class="fas fa-phone-volume"></i> Позвонить закупщику
+    </a>
   </div>
 
-  <!-- ФУТЕР (без телефона) -->
+  <!-- ФУТЕР -->
   <div class="footer-note">
     <span class="badge"><i class="fas fa-envelope"></i> zakup@voen.ru</span>
     <span><i class="fas fa-store"></i> военторг</span>
   </div>
 </div>
-
-<script>
-  document.getElementById('sellForm').addEventListener('submit', function(e) {
-    const btn = document.getElementById('submitBtn');
-    const feedbackDiv = document.getElementById('formFeedback');
-    const feedbackMessage = document.getElementById('feedbackMessage');
-
-    btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
-    btn.disabled = true;
-
-    feedbackMessage.textContent = '⏳ Отправляем заявку...';
-    feedbackDiv.style.display = 'block';
-    feedbackDiv.className = 'feedback';
-
-    // Сообщение об ошибке, если что-то пошло не так
-    setTimeout(function() {
-      // Если форма всё ещё не отправлена (например, ошибка сети),
-      // показываем краткое "Ошибка"
-      if (btn.disabled) {
-        feedbackMessage.textContent = 'Ошибка';
-        feedbackDiv.className = 'feedback error';
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Отправить заявку';
-        btn.disabled = false;
-      }
-    }, 8000);
-  });
-</script>
-
 </body>
 </html>
