@@ -270,6 +270,12 @@
             border-bottom-width: 1px;
             box-shadow: 0 1px 0 #3f382d;
         }
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: translateY(2px);
+            border-bottom-width: 2px;
+        }
 
         .footer-note {
             margin-top: 2.5rem;
@@ -292,6 +298,18 @@
             border: 1px solid #6e6657;
         }
 
+        .feedback {
+            margin-top: 1.5rem;
+            display: none;
+            background: #353027;
+            border-radius: 2rem;
+            padding: 1rem 1.8rem;
+            border-left: 6px solid #b8a78b;
+            color: #e6ddcc;
+        }
+        .feedback.error { border-left-color: #c97a5a; }
+        .feedback i { margin-right: 12px; }
+
         @media (max-width: 750px) {
             .site-card { padding: 1.5rem 1rem; border-radius: 2.5rem; }
             .header h1 { font-size: 1.6rem; }
@@ -310,25 +328,11 @@
             .form-section { padding: 1.5rem 1.2rem; }
             .header-left .icon-big { font-size: 2rem; padding: 0.2rem 0.6rem; }
         }
-
-        /* стили для сообщений */
-        .feedback {
-            margin-top: 1.5rem;
-            display: none;
-            background: #353027;
-            border-radius: 2rem;
-            padding: 1rem 1.8rem;
-            border-left: 6px solid #b8a78b;
-            color: #e6ddcc;
-        }
-        .feedback.error { border-left-color: #c97a5a; }
-        .feedback i { margin-right: 12px; }
     </style>
 </head>
 <body>
 <div class="site-card">
 
-    <!-- ШАПКА -->
     <div class="header">
         <div class="header-left">
             <span class="icon-big"><i class="fas fa-hand-holding-heart"></i></span>
@@ -340,14 +344,12 @@
         </div>
     </div>
 
-    <!-- МИССИЯ -->
     <div class="mission-statement">
         <i class="fas fa-bullseye"></i>
         <span><strong>Мы закупаем военное снаряжение</strong> по <strong>высоким ценам</strong> для передачи <strong>гуманитарной помощи</strong> в район СВО.</span>
         <span class="badge-svo"><i class="fas fa-flag"></i> #СВО #помощь</span>
     </div>
 
-    <!-- Примеры закупаемого -->
     <div style="margin-bottom: 0.2rem;">
         <span style="color: #b9af9b; font-size: 0.95rem; letter-spacing: 1px;">
             <i class="fas fa-cubes"></i> что закупаем:
@@ -360,19 +362,11 @@
         <div class="sample-card"><div class="icon"><i class="fas fa-backpack"></i></div><h3>Вещевые мешки</h3><p>60–120 л, камуфляж</p></div>
     </div>
 
-    <!-- ФОРМА -->
     <div class="form-section" id="orderForm">
         <h2><i class="fas fa-pen-to-square"></i> Отправить заявку на продажу</h2>
 
-        <!-- Formspree: скрытый email -->
-        <form id="sellForm" action="https://formspree.io/f/xpznkkrg" method="POST">
-            <input type="hidden" name="_subject" value="Новая заявка на продажу снаряжения для СВО" />
-            <!-- доп. скрытое поле для обратного адреса (не показывается пользователю) -->
-            <input type="hidden" name="_replyto" value="agent0490@mail.ru" />
-
+        <form id="sellForm">
             <div class="form-row">
-                <!-- Поле "Ваше имя" УДАЛЕНО -->
-
                 <div class="form-group">
                     <label for="phone"><i class="fas fa-phone"></i> Телефон *</label>
                     <input type="tel" id="phone" name="phone" placeholder="+7 912 345-67-89" required />
@@ -417,14 +411,12 @@
             </button>
         </form>
 
-        <!-- Блок обратной связи -->
         <div id="formFeedback" class="feedback">
             <i class="fas fa-check-circle"></i>
             <span id="feedbackMessage">Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.</span>
         </div>
     </div>
 
-    <!-- Футер -->
     <div class="footer-note">
         <span class="badge"><i class="fas fa-phone"></i> +7 (912) 345-67-89</span>
         <span><i class="fas fa-envelope"></i> zakup@voen.ru</span>
@@ -432,8 +424,21 @@
     </div>
 </div>
 
+<!-- Подключаем EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
     (function() {
+        // ===== НАСТРОЙКИ EMAILJS =====
+        // Зарегистрируйтесь на https://www.emailjs.com/
+        // Получите эти данные в личном кабинете
+        const PUBLIC_KEY = 'ваш_публичный_ключ';    // ← Замените на ваш Public Key
+        const SERVICE_ID = 'service_ваш_id';       // ← Замените на ваш Service ID
+        const TEMPLATE_ID = 'template_ваш_id';     // ← Замените на ваш Template ID
+
+        // Инициализируем EmailJS
+        emailjs.init(PUBLIC_KEY);
+
         const form = document.getElementById('sellForm');
         const feedbackDiv = document.getElementById('formFeedback');
         const feedbackMessage = document.getElementById('feedbackMessage');
@@ -446,11 +451,18 @@
             feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Проверка: телефон
+            // Получаем данные
             const phone = document.getElementById('phone').value.trim();
+            const productType = document.getElementById('productType').value;
+            const quantity = document.getElementById('quantity').value.trim();
+            const price = document.getElementById('price').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Валидация
             if (!phone) {
                 showFeedback('❌ Пожалуйста, укажите номер телефона.', false);
                 return;
@@ -461,41 +473,45 @@
                 return;
             }
 
-            // Проверка: выбран товар
-            const product = document.getElementById('productType').value;
-            if (!product) {
+            if (!productType) {
                 showFeedback('❌ Пожалуйста, выберите, что вы продаёте.', false);
                 return;
             }
 
-            // Отключаем кнопку, показываем спиннер
+            // Блокируем кнопку
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
             submitBtn.disabled = true;
 
-            const formData = new FormData(form);
+            try {
+                // Подготавливаем данные для EmailJS
+                const templateParams = {
+                    phone: phone,
+                    product: productType,
+                    quantity: quantity || 'не указано',
+                    price: price || 'не указана',
+                    city: city || 'не указан',
+                    message: message || 'без подробностей',
+                    time: new Date().toLocaleString('ru-RU')
+                };
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
+                // Отправляем через EmailJS
+                const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+
+                if (response.status === 200) {
                     showFeedback('✅ Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.', true);
                     form.reset();
                 } else {
-                    showFeedback('❌ Ошибка при отправке. Попробуйте позже или позвоните по телефону.', false);
+                    throw new Error('Ошибка отправки: ' + response.text);
                 }
-            })
-            .catch(error => {
-                showFeedback('❌ Ошибка соединения. Проверьте интернет или попробуйте позже.', false);
+
+            } catch (error) {
                 console.error('Ошибка:', error);
-            })
-            .finally(() => {
+                showFeedback('❌ Ошибка отправки: ' + error.message + '. Попробуйте позже или позвоните по телефону.', false);
+            } finally {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            });
+            }
         });
     })();
 </script>
