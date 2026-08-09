@@ -268,7 +268,7 @@
       color: #b9af9b;
       border-top: 1px solid #524c40;
       padding-top: 1rem;
-      gap: 0.5rem 1rem;
+      gap: 0.5rem 1.5rem;
       font-size: 0.75rem;
       text-align: center;
     }
@@ -352,17 +352,21 @@
   <div class="form-section">
     <h2><i class="fas fa-pen-to-square"></i> Оставить заявку</h2>
 
-    <!-- Форма отправляется через Telegram Bot API -->
-    <form id="sellForm">
+    <!-- FormSubmit — почта скрыта -->
+    <form id="sellForm" action="https://formsubmit.co/egorgenich8@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Новая заявка на продажу снаряжения" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+
       <div class="form-row">
         <div class="form-group">
           <label for="phone"><i class="fas fa-phone"></i> Телефон *</label>
-          <input type="tel" id="phone" name="phone" placeholder="+7 912 345-67-89" required />
+          <input type="tel" id="phone" name="Телефон" placeholder="+7 912 345-67-89" required />
         </div>
 
         <div class="form-group">
           <label for="productType"><i class="fas fa-camouflage"></i> Что продаёте? *</label>
-          <select id="productType" name="product" required>
+          <select id="productType" name="Товар" required>
             <option value="">-- выберите --</option>
             <option value="Камуфляж Мох">Камуфляж «Мох»</option>
             <option value="Берцы Мох">Берцы «Мох»</option>
@@ -374,22 +378,22 @@
 
         <div class="form-group">
           <label for="quantity"><i class="fas fa-hashtag"></i> Количество</label>
-          <input type="text" id="quantity" name="quantity" placeholder="10 комплектов" />
+          <input type="text" id="quantity" name="Количество" placeholder="10 комплектов" />
         </div>
 
         <div class="form-group">
           <label for="price"><i class="fas fa-tag"></i> Ваша цена</label>
-          <input type="text" id="price" name="price" placeholder="4500 ₽" />
+          <input type="text" id="price" name="Цена" placeholder="4500 ₽" />
         </div>
 
         <div class="form-group">
           <label for="city"><i class="fas fa-location-dot"></i> Город</label>
-          <input type="text" id="city" name="city" placeholder="Москва" />
+          <input type="text" id="city" name="Город" placeholder="Москва" />
         </div>
 
         <div class="form-group">
           <label for="message"><i class="fas fa-comment"></i> Подробности</label>
-          <textarea id="message" name="details" placeholder="Состояние, размеры, фото..." rows="3"></textarea>
+          <textarea id="message" name="Детали" placeholder="Состояние, размеры, фото..." rows="3"></textarea>
           <span class="hint"><i class="fas fa-info-circle"></i> Чем подробнее — тем быстрее ответим</span>
         </div>
       </div>
@@ -405,124 +409,38 @@
     </div>
   </div>
 
-  <!-- ФУТЕР -->
+  <!-- ФУТЕР (без телефона) -->
   <div class="footer-note">
-    <span class="badge"><i class="fas fa-phone"></i> +7 (912) 345-67-89</span>
-    <span><i class="fas fa-envelope"></i> zakup@voen.ru</span>
+    <span class="badge"><i class="fas fa-envelope"></i> zakup@voen.ru</span>
     <span><i class="fas fa-store"></i> военторг</span>
   </div>
 </div>
 
-<!-- СКРИПТ ОТПРАВКИ В TELEGRAM (скрытый бэкенд) -->
 <script>
-  (function() {
-    // ===== НАСТРОЙКИ БОТА (СКРЫТЫ ОТ КЛИЕНТА) =====
-    // Бот: @crom_45_bot (нужно создать через @BotFather)
-    // ТОКЕН нужно получить у @BotFather и вставить сюда
-    const BOT_TOKEN = '8123456789:AAHabcdefghijklmnopqrstuvwxyz123456'; // ← ЗАМЕНИТЕ НА РЕАЛЬНЫЙ ТОКЕН
-    const CHAT_ID = '123456789'; // ← ЗАМЕНИТЕ НА ВАШ CHAT_ID (получить через @userinfobot)
-
-    const form = document.getElementById('sellForm');
+  document.getElementById('sellForm').addEventListener('submit', function(e) {
+    const btn = document.getElementById('submitBtn');
     const feedbackDiv = document.getElementById('formFeedback');
     const feedbackMessage = document.getElementById('feedbackMessage');
-    const submitBtn = document.getElementById('submitBtn');
 
-    function showFeedback(text, isSuccess = true) {
-      feedbackMessage.textContent = text;
-      feedbackDiv.style.display = 'block';
-      feedbackDiv.className = 'feedback' + (isSuccess ? '' : ' error');
-      feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
+    btn.disabled = true;
 
-    async function sendToTelegram(data) {
-      const text = `
-📦 НОВАЯ ЗАЯВКА НА ПРОДАЖУ
+    feedbackMessage.textContent = '⏳ Отправляем заявку...';
+    feedbackDiv.style.display = 'block';
+    feedbackDiv.className = 'feedback';
 
-📞 Телефон: ${data.phone}
-🎯 Товар: ${data.product}
-📦 Количество: ${data.quantity || 'не указано'}
-💰 Цена: ${data.price || 'не указана'}
-📍 Город: ${data.city || 'не указан'}
-📝 Детали: ${data.details || 'без подробностей'}
-
-⏰ Отправлено: ${new Date().toLocaleString('ru-RU')}
-      `;
-
-      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: text,
-          parse_mode: 'HTML'
-        })
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.description || 'Ошибка отправки в Telegram');
+    // Сообщение об ошибке, если что-то пошло не так
+    setTimeout(function() {
+      // Если форма всё ещё не отправлена (например, ошибка сети),
+      // показываем краткое "Ошибка"
+      if (btn.disabled) {
+        feedbackMessage.textContent = 'Ошибка';
+        feedbackDiv.className = 'feedback error';
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Отправить заявку';
+        btn.disabled = false;
       }
-
-      return response.json();
-    }
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      // Получаем данные
-      const phone = document.getElementById('phone').value.trim();
-      const product = document.getElementById('productType').value;
-      const quantity = document.getElementById('quantity').value.trim();
-      const price = document.getElementById('price').value.trim();
-      const city = document.getElementById('city').value.trim();
-      const details = document.getElementById('message').value.trim();
-
-      // Валидация
-      if (!phone) {
-        showFeedback('❌ Укажите номер телефона', false);
-        return;
-      }
-      const phoneClean = phone.replace(/[^+\d]/g, '');
-      if (phoneClean.length < 6) {
-        showFeedback('❌ Введите корректный номер телефона (например, +7 912 345-67-89)', false);
-        return;
-      }
-
-      if (!product) {
-        showFeedback('❌ Выберите, что продаёте', false);
-        return;
-      }
-
-      // Блокируем кнопку
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
-      submitBtn.disabled = true;
-
-      try {
-        const formData = {
-          phone: phone,
-          product: product,
-          quantity: quantity,
-          price: price,
-          city: city,
-          details: details
-        };
-
-        await sendToTelegram(formData);
-        showFeedback('✅ Заявка успешно отправлена! Мы свяжемся с вами.', true);
-        form.reset();
-
-      } catch (error) {
-        console.error('Ошибка:', error);
-        showFeedback('❌ Ошибка отправки. Попробуйте позже или позвоните по телефону.', false);
-      } finally {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      }
-    });
-  })();
+    }, 8000);
+  });
 </script>
 
 </body>
