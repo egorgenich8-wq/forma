@@ -141,11 +141,10 @@
     .sample-card h3 { color: #f0eadc; font-size: 0.85rem; font-weight: 500; }
     .sample-card p { color: #b7aa93; font-size: 0.7rem; margin-top: 0.1rem; }
 
-    /* БЛОК С КНОПКОЙ TELEGRAM */
     .call-block {
       background: #2b2821;
       border-radius: 2rem;
-      padding: 1.5rem 1.2rem;
+      padding: 1.2rem 1.2rem;
       border: 1px solid #6a6355;
       box-shadow: inset 0 2px 8px #1d1b16;
       margin-bottom: 0.5rem;
@@ -153,41 +152,43 @@
 
     .call-block .sub-text {
       color: #b9af9b;
-      font-size: 0.85rem;
-      margin-bottom: 1.2rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.9rem;
     }
 
+    /* КНОПКА УМЕНЬШЕНА */
     .btn-telegram {
       border: none;
-      border-bottom: 3px solid #1a5a8c;
-      padding: 1rem 1.5rem;
+      border-bottom: 2px solid #1a5a8c;
+      padding: 0.6rem 1.2rem;
       border-radius: 60px;
-      font-size: 1.3rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #fefcf5;
       text-shadow: 0 2px 3px #1e1913;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 10px;
       cursor: pointer;
       transition: 0.15s;
       background: linear-gradient(145deg, #2AABEE, #1A8CD8);
-      box-shadow: 0 4px 0 #1a5a8c, 0 6px 12px #0b0a07;
-      letter-spacing: 0.5px;
-      width: 100%;
+      box-shadow: 0 3px 0 #1a5a8c, 0 4px 10px #0b0a07;
+      letter-spacing: 0.3px;
+      width: auto;
+      min-width: 200px;
       text-decoration: none;
       color: #fefcf5;
     }
 
     .btn-telegram:active {
-      transform: translateY(3px);
+      transform: translateY(2px);
       border-bottom-width: 1px;
       box-shadow: 0 1px 0 #1a5a8c;
     }
 
     .btn-telegram i {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       color: #fff;
     }
 
@@ -227,20 +228,29 @@
       .sample-card .icon { font-size: 1.6rem; }
       .sample-card h3 { font-size: 0.75rem; }
       .sample-card p { font-size: 0.6rem; }
-      .btn-telegram { font-size: 1.1rem; padding: 0.8rem 1rem; }
-      .btn-telegram i { font-size: 1.4rem; }
+      .btn-telegram {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+        min-width: 160px;
+      }
+      .btn-telegram i { font-size: 1rem; }
     }
 
     @media (max-width: 360px) {
       .grid { grid-template-columns: 1fr 1fr; gap: 0.4rem; }
       .sample-card { padding: 0.5rem 0.3rem; }
+      .btn-telegram {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        min-width: 140px;
+        gap: 6px;
+      }
     }
   </style>
 </head>
 <body>
 <div class="site-card">
 
-  <!-- ШАПКА -->
   <div class="header">
     <div class="header-left">
       <span class="icon-big"><i class="fas fa-store"></i></span>
@@ -251,13 +261,11 @@
     </div>
   </div>
 
-  <!-- ОПИСАНИЕ -->
   <div class="mission-statement">
     <i class="fas fa-handshake"></i>
     <span><strong>Скупаем военное снаряжение</strong> для перепродажи в военторге. Работаем с частными лицами и организациями.</span>
   </div>
 
-  <!-- ЧТО ЗАКУПАЕМ -->
   <div style="margin-bottom: 0.3rem; text-align: left;">
     <span style="color: #b9af9b; font-size: 0.8rem;">
       <i class="fas fa-cubes"></i> что закупаем:
@@ -270,19 +278,16 @@
     <div class="sample-card"><div class="icon"><i class="fas fa-backpack"></i></div><h3>Вещевые мешки</h3><p>60–120 л</p></div>
   </div>
 
-  <!-- КНОПКА TELEGRAM -->
   <div class="call-block">
     <div class="sub-text">
       <i class="fas fa-paper-plane"></i> Напишите нам в Telegram — ответим в течение 15 минут
     </div>
 
-    <!-- Ссылка ведёт в Telegram на @crom_45 -->
     <a href="https://t.me/crom_45" target="_blank" class="btn-telegram">
       <i class="fab fa-telegram-plane"></i> Написать в Telegram
     </a>
   </div>
 
-  <!-- ФУТЕР -->
   <div class="footer-note">
     <span class="badge"><i class="fas fa-envelope"></i> zakup@voen.ru</span>
     <span><i class="fas fa-store"></i> военторг</span>
