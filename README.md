@@ -141,7 +141,7 @@
     .sample-card h3 { color: #f0eadc; font-size: 0.85rem; font-weight: 500; }
     .sample-card p { color: #b7aa93; font-size: 0.7rem; margin-top: 0.1rem; }
 
-    /* БЛОК С ОДНОЙ КНОПКОЙ WHATSAPP */
+    /* БЛОК С КНОПКОЙ TELEGRAM */
     .call-block {
       background: #2b2821;
       border-radius: 2rem;
@@ -157,9 +157,9 @@
       margin-bottom: 1.2rem;
     }
 
-    .btn-whatsapp {
+    .btn-telegram {
       border: none;
-      border-bottom: 3px solid #075E54;
+      border-bottom: 3px solid #1a5a8c;
       padding: 1rem 1.5rem;
       border-radius: 60px;
       font-size: 1.3rem;
@@ -172,26 +172,26 @@
       gap: 14px;
       cursor: pointer;
       transition: 0.15s;
-      background: linear-gradient(145deg, #25D366, #128C7E);
-      box-shadow: 0 4px 0 #075E54, 0 6px 12px #0b0a07;
+      background: linear-gradient(145deg, #2AABEE, #1A8CD8);
+      box-shadow: 0 4px 0 #1a5a8c, 0 6px 12px #0b0a07;
       letter-spacing: 0.5px;
       width: 100%;
       text-decoration: none;
       color: #fefcf5;
     }
 
-    .btn-whatsapp:active {
+    .btn-telegram:active {
       transform: translateY(3px);
       border-bottom-width: 1px;
-      box-shadow: 0 1px 0 #075E54;
+      box-shadow: 0 1px 0 #1a5a8c;
     }
 
-    .btn-whatsapp i {
+    .btn-telegram i {
       font-size: 1.6rem;
       color: #fff;
     }
 
-    .btn-whatsapp:hover {
+    .btn-telegram:hover {
       opacity: 0.95;
     }
 
@@ -227,8 +227,8 @@
       .sample-card .icon { font-size: 1.6rem; }
       .sample-card h3 { font-size: 0.75rem; }
       .sample-card p { font-size: 0.6rem; }
-      .btn-whatsapp { font-size: 1.1rem; padding: 0.8rem 1rem; }
-      .btn-whatsapp i { font-size: 1.4rem; }
+      .btn-telegram { font-size: 1.1rem; padding: 0.8rem 1rem; }
+      .btn-telegram i { font-size: 1.4rem; }
     }
 
     @media (max-width: 360px) {
@@ -270,15 +270,15 @@
     <div class="sample-card"><div class="icon"><i class="fas fa-backpack"></i></div><h3>Вещевые мешки</h3><p>60–120 л</p></div>
   </div>
 
-  <!-- ТОЛЬКО КНОПКА WHATSAPP (номер скрыт) -->
+  <!-- КНОПКА TELEGRAM -->
   <div class="call-block">
     <div class="sub-text">
-      <i class="fas fa-comment"></i> Напишите нам в WhatsApp — ответим в течение 15 минут
+      <i class="fas fa-paper-plane"></i> Напишите нам в Telegram — ответим в течение 15 минут
     </div>
 
-    <!-- Ссылка ведёт в WhatsApp, номер +79054665947 скрыт -->
-    <a href="https://wa.me/79054665947" target="_blank" class="btn-whatsapp">
-      <i class="fab fa-whatsapp"></i> Написать в WhatsApp
+    <!-- Ссылка ведёт в Telegram на @crom_45 -->
+    <a href="https://t.me/crom_45" target="_blank" class="btn-telegram">
+      <i class="fab fa-telegram-plane"></i> Написать в Telegram
     </a>
   </div>
 
